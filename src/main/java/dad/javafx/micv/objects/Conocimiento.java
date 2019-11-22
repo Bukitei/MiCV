@@ -8,7 +8,6 @@ import javafx.beans.property.StringProperty;
 public class Conocimiento {
 
 	private StringProperty denominacion = new SimpleStringProperty();
-	private ObjectProperty<Idioma> idioma = new SimpleObjectProperty<Idioma>();
 	private ObjectProperty<Nivel> nivel = new SimpleObjectProperty<Nivel>();
 	
 	public final StringProperty denominacionProperty() {
@@ -21,18 +20,6 @@ public class Conocimiento {
 	
 	public final void setDenominacion(final String denominacion) {
 		this.denominacionProperty().set(denominacion);
-	}
-	
-	public final ObjectProperty<Idioma> idiomaProperty() {
-		return this.idioma;
-	}
-	
-	public final Idioma getIdioma() {
-		return this.idiomaProperty().get();
-	}
-	
-	public final void setIdioma(final Idioma idioma) {
-		this.idiomaProperty().set(idioma);
 	}
 	
 	public final ObjectProperty<Nivel> nivelProperty() {

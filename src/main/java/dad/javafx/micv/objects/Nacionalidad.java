@@ -1,24 +1,27 @@
 package dad.javafx.micv.objects;
 
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 
 public class Nacionalidad {
 
-	private StringProperty denominacion = new SimpleStringProperty();
+	private ListProperty<String> denominacion = new SimpleListProperty<String>();
 
-	public final StringProperty denominacionProperty() {
+	public final ListProperty<String> denominacionProperty() {
 		return this.denominacion;
 	}
 	
 
-	public final String getDenominacion() {
+	public final ObservableList<String> getDenominacion() {
 		return this.denominacionProperty().get();
 	}
 	
 
-	public final void setDenominacion(final String denominacion) {
+	public final void setDenominacion(final ObservableList<String> denominacion) {
 		this.denominacionProperty().set(denominacion);
 	}
-	
+
 }

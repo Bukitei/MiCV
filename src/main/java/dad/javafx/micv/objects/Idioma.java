@@ -3,7 +3,7 @@ package dad.javafx.micv.objects;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Idioma {
+public class Idioma extends Conocimiento{
 
 	private StringProperty certificacion = new SimpleStringProperty();
 
