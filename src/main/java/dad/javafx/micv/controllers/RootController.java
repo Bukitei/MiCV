@@ -27,22 +27,32 @@ public class RootController implements Initializable{
 	private MenuItem save;
 	
 	@FXML
+	private MenuItem saveAs;
+	
+	@FXML
 	private MenuItem exit;
 	
 	@FXML
-	private Tab personal;
+	private MenuItem about;
 	
 	@FXML
-	private Tab contact;
+	private Tab personalTab;
 	
 	@FXML
-	private Tab formation;
+	private Tab contactTab;
 	
 	@FXML
-	private Tab experience;
+	private Tab formationTab;
 	
 	@FXML
-	private Tab skills;
+	private Tab experienceTab;
+	
+	@FXML
+	private Tab skillsTab;
+	
+	//model
+	
+	private PersonalController personal = new PersonalController();
 	
 	
 	
@@ -59,6 +69,7 @@ public class RootController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
+		personalTab.setContent(personal.getView());
 		
 	}
 	

@@ -50,7 +50,7 @@
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="G" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
-              <MenuItem mnemonicParsing="false" text="Guardar como..." />
+              <MenuItem fx:id="saveAs" mnemonicParsing="false" text="Guardar como..." />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem fx:id="exit" mnemonicParsing="false" text="Salir">
                      <accelerator>
@@ -60,22 +60,22 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Ayuda">
             <items>
-              <MenuItem mnemonicParsing="false" text="Acerca de..." />
+              <MenuItem fx:id="about" mnemonicParsing="false" text="Acerca de..." />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="450.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Personal">
+          <Tab fx:id="personalTab" text="Personal">
           </Tab>
-          <Tab text="Contacto">
+          <Tab fx:id="contactTab" text="Contacto">
           </Tab>
-          <Tab text="Formación">
+          <Tab fx:id="formationTab" text="Formación">
           </Tab>
-          <Tab text="Experiencia">
+          <Tab fx:id="experienceTab" text="Experiencia">
           </Tab>
-          <Tab text="Conocimientos">
+          <Tab fx:id="skillsTab" text="Conocimientos">
           </Tab>
         </tabs>
       </TabPane>
