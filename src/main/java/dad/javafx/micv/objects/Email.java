@@ -1,24 +1,40 @@
 package dad.javafx.micv.objects;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+@XmlType
 public class Email {
 
-	private StringProperty direccion = new SimpleStringProperty();
+	private StringProperty email = new SimpleStringProperty();
 
-	public final StringProperty direccionProperty() {
-		return this.direccion;
+	public Email() {}
+	
+	public Email(String email) {
+		this.email.set(email);
+	}
+
+	public final StringProperty emailProperty() {
+		return this.email;
 	}
 	
 
-	public final String getDireccion() {
-		return this.direccionProperty().get();
+	@XmlAttribute(name="direccion")
+	public final String getEmail() {
+		return this.emailProperty().get();
 	}
 	
 
-	public final void setDireccion(final String direccion) {
-		this.direccionProperty().set(direccion);
+	public final void setEmail(final String email) {
+		this.emailProperty().set(email);
 	}
+	
+	
+
+	
+	
 	
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dad.javafx.micv.objects.Experiencia;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 
-public class SkillsController implements Initializable{
+public class ExperienceController implements Initializable{
 
 	//FXML
 	
@@ -19,21 +20,18 @@ public class SkillsController implements Initializable{
         private HBox view;
         
         @FXML
-        private TableView skillsTbl;
+        private TableView<Experiencia> experienceTbl;
         
         @FXML
-        private Button addKBt;
-        
-        @FXML
-        private Button addLBt;
+        private Button addBt;
         
         @FXML
         private Button removeBt;  
 	
 	//modelo
 
-	public SkillsController() throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/SkillsView.fxml"));
+	public ExperienceController() throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ExperienceView.fxml"));
 		loader.setController(this);
 		loader.load();
 	}

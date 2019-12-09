@@ -2,22 +2,42 @@ package dad.javafx.micv.objects;
 
 import java.time.LocalDate;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import dad.javafx.micv.utils.DateAdapter;
 
+@XmlType
 public class Titulo {
 
 	private ObjectProperty<LocalDate> desde = new SimpleObjectProperty<LocalDate>();
 	private ObjectProperty<LocalDate> hasta = new SimpleObjectProperty<LocalDate>();
 	private StringProperty denominacion = new SimpleStringProperty();
 	private StringProperty organizador = new SimpleStringProperty();
+
+	public Titulo() {
+		
+	}
+	
+	public Titulo(LocalDate desde, LocalDate hasta, String denominacion, String organizador) {
+		this.desde.set(desde);
+		this.hasta.set(hasta);
+		this.denominacion.set(denominacion);
+		this.organizador.set(organizador);
+	}
 	
 	public final ObjectProperty<LocalDate> desdeProperty() {
 		return this.desde;
 	}
 	
+	
+	@XmlAttribute
+	@XmlJavaTypeAdapter(value = DateAdapter.class)
 	public final LocalDate getDesde() {
 		return this.desdeProperty().get();
 	}
@@ -30,6 +50,8 @@ public class Titulo {
 		return this.hasta;
 	}
 	
+	@XmlAttribute
+	@XmlJavaTypeAdapter(value = DateAdapter.class)
 	public final LocalDate getHasta() {
 		return this.hastaProperty().get();
 	}
@@ -61,5 +83,7 @@ public class Titulo {
 	public final void setOrganizador(final String organizador) {
 		this.organizadorProperty().set(organizador);
 	}
+	
+	
 	
 }

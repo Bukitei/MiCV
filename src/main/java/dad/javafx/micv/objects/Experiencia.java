@@ -2,22 +2,42 @@ package dad.javafx.micv.objects;
 
 import java.time.LocalDate;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import dad.javafx.micv.utils.DateAdapter;
 
+@XmlType
 public class Experiencia {
 
 	private ObjectProperty<LocalDate> desde = new SimpleObjectProperty<LocalDate>();
 	private ObjectProperty<LocalDate> hasta = new SimpleObjectProperty<LocalDate>();
 	private StringProperty denominacion = new SimpleStringProperty();
 	private StringProperty empleador = new SimpleStringProperty();
+
+	public Experiencia() {
+		
+	}
+	
+	public Experiencia(LocalDate desde, LocalDate hasta, String denominacion, String empleador) {
+		this.desde.set(desde);
+		this.hasta.set(hasta);
+		this.denominacion.set(denominacion);
+		this.empleador.set(empleador);
+	}
 	
 	public final ObjectProperty<LocalDate> desdeProperty() {
 		return this.desde;
 	}
 	
+	@XmlAttribute
+	@XmlJavaTypeAdapter(value = DateAdapter.class)
 	public final LocalDate getDesde() {
 		return this.desdeProperty().get();
 	}
@@ -30,6 +50,8 @@ public class Experiencia {
 		return this.hasta;
 	}
 	
+	@XmlAttribute
+	@XmlJavaTypeAdapter(value = DateAdapter.class)
 	public final LocalDate getHasta() {
 		return this.hastaProperty().get();
 	}
@@ -42,6 +64,7 @@ public class Experiencia {
 		return this.denominacion;
 	}
 	
+	@XmlAttribute
 	public final String getDenominacion() {
 		return this.denominacionProperty().get();
 	}
@@ -49,17 +72,20 @@ public class Experiencia {
 	public final void setDenominacion(final String denominacion) {
 		this.denominacionProperty().set(denominacion);
 	}
-	
+
 	public final StringProperty empleadorProperty() {
 		return this.empleador;
 	}
 	
+	@XmlAttribute
 	public final String getEmpleador() {
 		return this.empleadorProperty().get();
 	}
 	
+
 	public final void setEmpleador(final String empleador) {
 		this.empleadorProperty().set(empleador);
 	}
+		
 	
 }

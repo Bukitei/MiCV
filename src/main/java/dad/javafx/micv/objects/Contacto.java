@@ -1,50 +1,69 @@
 package dad.javafx.micv.objects;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import java.util.ArrayList;
 
+import javax.xml.bind.annotation.XmlType;
+
+import com.sun.xml.txw2.annotation.XmlElement;
+
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+@XmlType
 public class Contacto {
 
-	private ObjectProperty<Telefono> telefono = new SimpleObjectProperty<Telefono>();
-	private ObjectProperty<Email> email = new SimpleObjectProperty<Email>();
-	private ObjectProperty<Web> web = new SimpleObjectProperty<Web>();
+	private ListProperty<Telefono> telefonos = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<>()));
+	private ListProperty<Email> emails = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<>()));
+	private ListProperty<Web> webs = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<>()));
 	
-	public final ObjectProperty<Telefono> telefonoProperty() {
-		return this.telefono;
+	public Contacto() {}
+	
+	public Contacto(ArrayList<Telefono> telefonos, ArrayList<Email> emails, ArrayList<Web> webs) {
+		this.telefonos.addAll(telefonos);
+		this.emails.addAll(emails);
+		this.webs.addAll(webs);
 	}
 	
-	public final Telefono getTelefono() {
-		return this.telefonoProperty().get();
+	public final ListProperty<Telefono> telefonosProperty() {
+		return this.telefonos;
 	}
 	
-	public final void setTelefono(final Telefono telefono) {
-		this.telefonoProperty().set(telefono);
+	@XmlElement
+	public final ObservableList<Telefono> getTelefonos() {
+		return this.telefonosProperty().get();
 	}
 	
-	public final ObjectProperty<Email> emailProperty() {
-		return this.email;
+	public final void setTelefonos(final ObservableList<Telefono> telefonos) {
+		this.telefonosProperty().set(telefonos);
 	}
 	
-	public final Email getEmail() {
-		return this.emailProperty().get();
+	public final ListProperty<Email> emailsProperty() {
+		return this.emails;
 	}
 	
-	public final void setEmail(final Email email) {
-		this.emailProperty().set(email);
+	@XmlElement
+	public final ObservableList<Email> getEmails() {
+		return this.emailsProperty().get();
 	}
 	
-	public final ObjectProperty<Web> webProperty() {
-		return this.web;
+	public final void setEmails(final ObservableList<Email> emails) {
+		this.emailsProperty().set(emails);
 	}
 	
-	public final Web getWeb() {
-		return this.webProperty().get();
+	public final ListProperty<Web> websProperty() {
+		return this.webs;
 	}
 	
-	public final void setWeb(final Web web) {
-		this.webProperty().set(web);
+	@XmlElement
+	public final ObservableList<Web> getWebs() {
+		return this.websProperty().get();
 	}
 	
+	public final void setWebs(final ObservableList<Web> webs) {
+		this.websProperty().set(webs);
+	}
 	
 	
 	

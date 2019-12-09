@@ -1,8 +1,15 @@
 package dad.javafx.micv.controllers;
 
+import dad.javafx.micv.objects.Personal;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,12 +57,20 @@ public class PersonalController implements Initializable{
 	private ListView<String> nacionality;
 	
 	@FXML
-	private Button more;
+	private Button addBt;
 	
 	@FXML
-	private Button less;
+	private Button removeBt;
 	
 	//modelo
+        
+        private ObjectProperty<Personal> personal = new SimpleObjectProperty<Personal>();
+	
+	
+	private ListProperty<String> paisesList = new SimpleListProperty<>(FXCollections.observableArrayList(new ArrayList<>()));
+	
+	
+	private ArrayList<String> nacionalidadesList = new ArrayList<>();
 
 	public PersonalController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/PersonalView.fxml"));
@@ -72,5 +87,7 @@ public class PersonalController implements Initializable{
 	public GridPane getView() {
 		return view;
 	}
+        
+        
 	
 }

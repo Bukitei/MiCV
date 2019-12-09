@@ -1,40 +1,64 @@
 package dad.javafx.micv.objects;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+
+@XmlType
 public class Telefono {
 
-	private StringProperty numero = new SimpleStringProperty();
-	private ObjectProperty<TipoTelefono> tipoTeléfono = new SimpleObjectProperty<TipoTelefono>();
+	public enum TipoTelefono {
+
+		DOMICILIO,
+		MOVIL
+	}
+
 	
-	public final StringProperty númeroProperty() {
+	private StringProperty numero = new SimpleStringProperty();
+	private ObjectProperty<TipoTelefono> tipo = new SimpleObjectProperty<>();
+	
+	public Telefono() {
+		
+	}
+	
+	public Telefono(String numero) {
+		this.numero.set(numero);
+	}
+	
+	public final StringProperty numeroProperty() {
 		return this.numero;
 	}
 	
-	public final String getNúmero() {
-		return this.númeroProperty().get();
+
+	@XmlAttribute
+	public final String getNumero() {
+		return this.numeroProperty().get();
 	}
 	
-	public final void setNúmero(final String número) {
-		this.númeroProperty().set(número);
+
+	public final void setNumero(final String numero) {
+		this.numeroProperty().set(numero);
+	}
+
+	public final ObjectProperty<TipoTelefono> tipoProperty() {
+		return this.tipo;
 	}
 	
-	public final ObjectProperty<TipoTelefono> tipoTeléfonoProperty() {
-		return this.tipoTeléfono;
+
+	@XmlAttribute
+	public final TipoTelefono getTipo() {
+		return this.tipoProperty().get();
 	}
 	
-	public final TipoTelefono getTipoTeléfono() {
-		return this.tipoTeléfonoProperty().get();
+
+	public final void setTipo(final TipoTelefono tipo) {
+		this.tipoProperty().set(tipo);
 	}
-	
-	public final void setTipoTeléfono(final TipoTelefono tipoTeléfono) {
-		this.tipoTeléfonoProperty().set(tipoTeléfono);
-	}
-	
-	
 	
 	
 }

@@ -1,27 +1,37 @@
 package dad.javafx.micv.objects;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlType;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+@XmlType
 public class Web {
 
-	private StringProperty url = new SimpleStringProperty();
+	private StringProperty web = new SimpleStringProperty();
 
-	public final StringProperty urlProperty() {
-		return this.url;
+	public Web() {
+		
+	}
+	
+	public Web(String web) {
+		this.web.set(web);
+	}
+
+	public final StringProperty webProperty() {
+		return this.web;
 	}
 	
 
-	public final String getUrl() {
-		return this.urlProperty().get();
+	@XmlAttribute(name="url")
+	public final String getWeb() {
+		return this.webProperty().get();
 	}
 	
 
-	public final void setUrl(final String url) {
-		this.urlProperty().set(url);
+	public final void setWeb(final String web) {
+		this.webProperty().set(web);
 	}
-	
-	
-	
 	
 }

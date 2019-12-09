@@ -7,27 +7,30 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.cell.*?> 
 
-
-<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<VBox fx:id="view" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" spacing="5.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TitledPane animated="false" text="Teléfonos">
+      <TitledPane animated="false" collapsible="false" contentDisplay="TOP" maxHeight="1.7976931348623157E308" text="Teléfonos" VBox.vgrow="ALWAYS">
          <content>
-            <HBox alignment="CENTER" prefHeight="151.0" prefWidth="598.0" spacing="5.0">
+            <HBox prefHeight="100.0" spacing="5.0">
                <children>
-                  <TableView prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                  <TableView fx:id="tlfTable" prefHeight="200.0" HBox.hgrow="ALWAYS">
                     <columns>
-                      <TableColumn prefWidth="270.0" text="Número" />
-                      <TableColumn prefWidth="241.0" text="Tipo" />
+                      <TableColumn minWidth="120.0" prefWidth="-1.0" text="Número" >
+                           <cellValueFactory><PropertyValueFactory property="numero" />
+	       	 			   </cellValueFactory>
+	       	 		  </TableColumn>
+                      <TableColumn minWidth="120.0" prefWidth="-1.0" text="Tipo" >
+                      	   <cellValueFactory><PropertyValueFactory property="tipo" />
+	       	 			   </cellValueFactory>
+                      </TableColumn>
                     </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
                   </TableView>
-                  <VBox prefHeight="68.0" prefWidth="61.0" spacing="5.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Añadir" />
-                        <Button mnemonicParsing="false" text="Eliminar" />
+                        <Button fx:id="tlf_addBt" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
+                        <Button fx:id="tlf_removeBt" mnemonicParsing="false" text="Eliminar" />
                      </children>
                   </VBox>
                </children>
@@ -36,46 +39,46 @@
       </TitledPane>
       <Separator prefWidth="200.0" />
       <Separator prefWidth="200.0" />
-      <TitledPane animated="false" text="Dirección de correo">
+      <TitledPane animated="false" collapsible="false" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" text="Direcciones de correo" VBox.vgrow="ALWAYS">
          <content>
-            <HBox alignment="CENTER" prefHeight="151.0" prefWidth="598.0" spacing="5.0">
+            <HBox prefHeight="100.0" spacing="5.0">
                <children>
-                  <TableView prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                  <TableView fx:id="emailTable" prefHeight="200.0" HBox.hgrow="ALWAYS">
                      <columns>
-                        <TableColumn prefWidth="511.0" text="E-mail" />
+                        <TableColumn minWidth="120.0" prefWidth="300.0" text="E-mail" >
+                           <cellValueFactory><PropertyValueFactory property="email" />
+	       	 			   </cellValueFactory>
+                        </TableColumn>
                      </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
                   </TableView>
-                  <VBox prefHeight="68.0" prefWidth="61.0" spacing="5.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Añadir" />
-                        <Button mnemonicParsing="false" text="Eliminar" />
+                        <Button fx:id="email_addBt" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
+                        <Button fx:id="email_removeBt" mnemonicParsing="false" text="Eliminar" />
                      </children>
                   </VBox>
                </children>
             </HBox>
          </content>
       </TitledPane>
-      <Separator prefWidth="200.0" />
-      <Separator prefWidth="200.0" />
-      <TitledPane animated="false" text="Webs">
+      <Separator layoutX="10.0" layoutY="141.0" prefWidth="200.0" />
+      <Separator layoutX="10.0" layoutY="149.0" prefWidth="200.0" />
+      <TitledPane animated="false" collapsible="false" contentDisplay="TOP" layoutX="10.0" layoutY="157.0" maxHeight="1.7976931348623157E308" text="Webs" VBox.vgrow="ALWAYS">
          <content>
-            <HBox alignment="CENTER" prefHeight="151.0" prefWidth="598.0" spacing="5.0">
+            <HBox prefHeight="100.0" spacing="5.0">
                <children>
-                  <TableView prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                  <TableView fx:id="webTable" prefHeight="200.0" HBox.hgrow="ALWAYS">
                      <columns>
-                        <TableColumn prefWidth="511.0" text="URL" />
+                        <TableColumn minWidth="120.0" prefWidth="300.0" text="URL" >
+                                <cellValueFactory><PropertyValueFactory property="web" />
+	       	 			   		</cellValueFactory>
+                        </TableColumn>
                      </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
                   </TableView>
-                  <VBox prefHeight="68.0" prefWidth="61.0" spacing="5.0">
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" spacing="5.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Añadir" />
-                        <Button mnemonicParsing="false" text="Eliminar" />
+                        <Button fx:id="web_addBt" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" />
+                        <Button fx:id="web_removeBt" mnemonicParsing="false" text="Eliminar" />
                      </children>
                   </VBox>
                </children>

@@ -4,7 +4,7 @@ package dad.javafx.micv.main;
 import dad.javafx.micv.controllers.RootController;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 
@@ -17,7 +17,7 @@ public class App extends Application{
 		
 		this.root = new RootController();
 		
-		VBox root = this.root.getView();
+		BorderPane root = this.root.getView();
 		
 		Scene scene = new Scene(root, 800, 600);
 		
